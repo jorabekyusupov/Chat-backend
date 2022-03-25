@@ -9,10 +9,7 @@ use Illuminate\Http\Request;
 class ChatsController extends Controller
 {
 
-    public function __construct(ChatService $service)
-    {
-        $this->service = $service;
-    }
+  
 
 
 }

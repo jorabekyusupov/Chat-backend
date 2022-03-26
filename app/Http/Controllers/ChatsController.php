@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Chat\ChatStoreRequest;
 use App\Models\Chat;
 use App\Services\Chat\ChatService;
 use Illuminate\Http\Request;
@@ -14,5 +15,14 @@ class ChatsController extends Controller
         $this->service = $service;
     }
 
+    public function store(ChatStoreRequest $request)
+    {
+        return $this->service->chatStore($request->validated());
+    }
+
+    public function show($id)
+    {
+        return $this->service->show($id, ['user','messages', 'messages.user','messages.author']);
+    }
 
 }

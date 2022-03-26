@@ -13,16 +13,18 @@ class Repository {
         return $this->model->query();
     }
 
-    public function store($params)
+    public function store($data)
     {
-        return $this->model->create($params);
+        $data['auth_id'] = auth()->id();
+        return $this->model->create($data);
     }
 
-    public function update($id, $params)
+    public function update($id, $data)
     {
+        $data['auth_id'] = auth()->id();
         $model = $this->query();
         $model = $model->find($id);
-        $model->update($params);
+        $model->update($data);
         return $model;
     }
 

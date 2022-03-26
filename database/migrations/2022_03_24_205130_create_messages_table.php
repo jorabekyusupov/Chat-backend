@@ -13,7 +13,7 @@ class CreateMessagesTable extends Migration
             $table->text('text');
             $table->string('file')->nullable();
             $table->integer('chat_id');
-            $table->integer('user_id');
+            $table->integer('auth_id');
             $table->timestamps();
         });
     }

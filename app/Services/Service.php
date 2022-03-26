@@ -12,22 +12,22 @@ class Service
         return $this->repository->query($relation);
     }
 
-    public function create($params): object
+    public function store($data)
     {
-        return $this->repository->store($params);
+        return $this->repository->store($data);
     }
 
-    public function edit($id, $params): object
+    public function edit($id, $data)
     {
-        return $this->repository->update($id, $params);
+        return $this->repository->update($id, $data);
     }
 
-    public function show($id, $relation = null): object
+    public function show($id, $relation = null)
     {
         return $this->repository->show($id, $relation);
     }
 
-    public function delete($id): bool
+    public function delete($id)
     {
         return $this->repository->destroy($id);
     }

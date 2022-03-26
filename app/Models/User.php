@@ -21,6 +21,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'firstname',
+        'lastname',
+        'phone',
+        'username'
     ];
 
     /**
@@ -41,7 +45,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function findForPassport($username) {
+
+    public function findForPassport($username)
+    {
         return $this->where('phone', $username)->first();
     }
 }

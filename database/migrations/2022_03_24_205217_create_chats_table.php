@@ -12,9 +12,7 @@ class CreateChatsTable extends Migration
             $table->id();
             $table->integer('auth_id');
             $table->integer('user_id');
-
-
-
+            $table->bigInteger('chat_id');
             $table->timestamps();
         });
     }

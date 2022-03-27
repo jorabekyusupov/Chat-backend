@@ -20,6 +20,12 @@ class ChatsController extends Controller
         return $this->service->chatStore($request->validated());
     }
 
+    public function index()
+    {
+        return $this->service->list();
+    }
+
+
     public function show($id)
     {
         return $this->service->show($id, ['user','messages', 'messages.user','messages.author']);

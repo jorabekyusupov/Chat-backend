@@ -19,4 +19,9 @@ class ChatService extends \App\Services\Service
           return $this->store($data);
 
     }
+
+    public function list()
+    {
+        return $this->get(['user', 'messages'])->where('auth_id', auth()->id())->get();
+    }
 }

@@ -29,6 +29,10 @@ class UserController extends Controller
         return $this->accessTokenController->issueToken($request);
     }
 
+    public function profile()
+    {
+        return $this->service->get()->where('id', auth()->id())->get();
+    }
 
 
 }

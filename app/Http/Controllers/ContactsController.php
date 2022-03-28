@@ -16,8 +16,12 @@ class ContactsController extends Controller
 
     public function index()
     {
+
         return $this->service->get(['users'])->where('auth_id', auth()->id())->get();
+
+
     }
+
     public function store(ContactStoreRequest $request)
     {
         return $this->service->store($request->validated());

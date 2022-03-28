@@ -25,6 +25,10 @@ class ChatsController extends Controller
         return $this->service->list();
     }
 
+    public function ListUser()
+    {
+        return $this->service->chatList();
+    }
 
     public function show($id)
     {

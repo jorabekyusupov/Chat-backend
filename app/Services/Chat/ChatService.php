@@ -2,6 +2,7 @@
 
 namespace App\Services\Chat;
 
+use App\Models\Chat;
 use App\Repositories\Chat\ChatRepository;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,8 +17,16 @@ class ChatService extends \App\Services\Service
     {
 
           $data['chat_id'] =  rand();
-          return $this->store($data);
+          $second = $this->store($data);
+          $param['auth_id'] = $second['user_id'];
+          $param['chat_id'] = $second['chat_id'];
+          $param['user_id'] = $second['auth_id'];
+          return Chat::create($param);
+    }
 
+    public function chatList()
+    {
+        return $this->get(['user'])->where('auth_id', auth()->id())->select('id', 'user_id', 'auth_id')->get();
     }
 
     public function list()
